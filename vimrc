@@ -392,7 +392,7 @@ let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_DisplayMode = 1 
 let OmniCpp_MayCompleteScope = 1
 " 
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD", "traffic"]
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " 
 set completeopt=menu,menuone,longest
 "set completeopt+=longest
@@ -469,9 +469,9 @@ nmap <F3> :YcmDiags<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list            = 1
-let g:syntastic_check_on_open            = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list            = 0
+let g:syntastic_check_on_open            = 0
 let g:syntastic_check_on_wq              = 0
 
 
@@ -514,12 +514,12 @@ hi EasyMotionShade  ctermbg=none ctermfg=gray
 
 
 """""""""""""""""""""""sneak""""""""""""""""""""""""
-nmap m <Plug>Sneak_s
-nmap M <Plug>Sneak_S
-xmap m <Plug>Sneak_s
-xmap M <Plug>Sneak_S
-omap m <Plug>Sneak_s
-omap M <Plug>Sneak_S
+nmap t <Plug>Sneak_s
+nmap T <Plug>Sneak_S
+xmap t <Plug>Sneak_s
+xmap T <Plug>Sneak_S
+omap t <Plug>Sneak_s
+omap T <Plug>Sneak_S
 
 
 
@@ -556,6 +556,13 @@ map <C-j> <Plug>(expand_region_shrink)
 let g:vimim_cloud = 'sogou,qq'
 let g:vimim_shuangpin = 'ms' 
 "let g:vimim_map = 'tab_as_gi'  
+
+
+let g:yankring_replace_n_pkey = '<m-p>'
+let g:yankring_replace_n_nkey = '<m-n>'
+
+let g:SignatureMarkTextHL = "Number"
+
 
 
 
@@ -657,7 +664,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'rdnetto/YCM-Generator'
 Bundle "tdcdev/ycm_simple_conf"
 Bundle 'vim-scripts/OmniCppComplete'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround' 
 "Bundle 'vim-scripts/taglist.vim'
 Bundle 'brookhong/cscope.vim'
@@ -707,6 +714,15 @@ Bundle "rking/ag.vim"
 Bundle "terryma/vim-expand-region"
 Bundle "pthrasher/conqueterm-vim"
 Bundle "vim-scripts/VimIM"
+"
+"
+Bundle "vim-scripts/YankRing.vim"
+Bundle "kshenoy/vim-signature"
+"Bundle "roxma/vim-paste-easy"
+Bundle "townk/vim-autoclose"
+
+
+"Bundle "gregsexton/gitv"
 "Bundle "exvim/ex-hierarchy"
 
 " non github repos
