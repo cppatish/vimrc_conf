@@ -146,14 +146,8 @@ nmap <Leader>w :w<CR>
 nmap <Leader>e /\v<error>\C<CR>
 "nmap <Leader>w /\v<warning>\C<CR>
 "nmap <Leader>w :cd /home/guanzx/w_17cy/<CR>:wa<CR>:make libTraffic-navi snod -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>m :cd /home/guanzx/17cy/<CR>:wa<CR>:make libTraffic-navi snod -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
 nmap <Leader>t :cd /home/guanzx/17cy/<CR>:wa<CR>:make libTraffic-navi-test -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>p :cd /mass/workspace/DM001/<CR>:wa<CR>:make -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>df :cd /mass/workspace/DM001_1s/<CR>:wa<CR>:make libvsdecoder-pdr -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>ee :cd /mass/workspace/DM001_1s/<CR>:wa<CR>:make rtpServer -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>te :cd /mass/workspace/16tmap_DemoPJ/<CR>:wa<CR>:make libvsencoder -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>tt :cd /mass/workspace/16tmap_DemoPJ/<CR>:wa<CR>:make vpudec_tool -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
-nmap <Leader>t2 :cd /mass/workspace/17cyt1t2stable/<CR>:wa<CR>:make libTraffic-navi -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
+nmap <Leader>m :cd /mass/workspace/carworld/src/330b_bak/<CR>:wa<CR>:make -j8<CR>:cw<CR><C-O><C-W>j<Leader>e<CR>:cd -<CR>
 
 "nmap <Leader>v :cd /home/17cy/<CR>:wa<CR>:make libTraffic-navi snod -j8<CR>:cw<CR><C-O><C-W>j<Leader>e
 
@@ -339,6 +333,7 @@ function! AirlineInit()
     let g:airline_section_a = airline#section#create(['mode'])
     let g:airline_section_b = airline#section#create_left(['branch','hunks'])
     let g:airline_section_c = airline#section#create(['%f'])
+    let g:airline_section_x = '%{strftime("%m/%d-%H:%M[%w]")}'
     let g:airline_section_y = 'BN: %{bufnr("%")}'
     let g:airline_section_z = airline#section#create(['%P',':','%4l',',','%3c'])
 endfunction
@@ -534,8 +529,12 @@ nmap <Leader>a <Plug>(EasyAlign)
 if !exists('g:easy_align_delimiters')
     let g:easy_align_delimiters = {}
 endif
-let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
+"let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']  }
 
+let g:easy_align_delimiters = {
+\ '(': { 'pattern': '(', 'left_margin': 0, 'right_margin': 1, 'stick_to_left': 1  },
+\ '/': { 'pattern': '\/', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0  }
+\ }
 
 """""""""""""""""""""""Goyo""""""""""""""""""""""""
 nnoremap <Leader><Leader>d :Goyo<CR>
@@ -563,6 +562,8 @@ let g:yankring_replace_n_nkey = '<m-n>'
 
 let g:SignatureMarkTextHL = "Number"
 
+
+"""""""""""""""""""""""denite-git""""""""""""""""""""""""
 
 
 
@@ -621,7 +622,7 @@ func! CompileRunGcc()
         exec "!g++ % -o %<"
         exec "!time ./%<"
     elseif &filetype == 'cpp'
-        exec "!g++ % -o %<"
+        exec "!g++ % -g -std=c++11 -lpthread -o %<"
         exec "!time ./%<"
     elseif &filetype == 'java'
         exec "!javac %"
@@ -708,19 +709,21 @@ Bundle 'majutsushi/tagbar'
 "Bundle 'godlygeek/tabular.git'
 Bundle "junegunn/vim-easy-align"
 Bundle "junegunn/goyo.vim"
+Bundle "junegunn/limelight.vim"
 Bundle "justinmk/vim-sneak"
 Bundle "rking/ag.vim"
 "Bundle "haya14busa/incsearch.vim"
 Bundle "terryma/vim-expand-region"
 Bundle "pthrasher/conqueterm-vim"
 Bundle "vim-scripts/VimIM"
+Bundle 'nickhutchinson/vim-make-syntax'
 "
 "
 Bundle "vim-scripts/YankRing.vim"
 Bundle "kshenoy/vim-signature"
 "Bundle "roxma/vim-paste-easy"
 Bundle "townk/vim-autoclose"
-
+"Bundle "Zuckonit/vim-airline-tomato"
 
 "Bundle "gregsexton/gitv"
 "Bundle "exvim/ex-hierarchy"
