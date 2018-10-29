@@ -1,0 +1,38 @@
+# install vim 8
+# 下载vim源码
+
+git clone https://github.com/vim/vim.git
+
+# 编译vim
+
+cd vim
+./configure  --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config
+make
+
+# 安装vim
+
+make install
+
+# 执行vim如果没有找到则把vim复制到/usr/bin目录下
+
+cp /usr/local/bin/vim /usr/bin/vim
+
+---------------------------------------------------------------------------------
+
+
+# install plug-vim
+mkdir ~/.vim/autoload/
+cd ~/.vim/autoload/
+wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+---------------------------------------------------------------------------------
+
+# install powerline fonts
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
