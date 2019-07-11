@@ -1,0 +1,2 @@
+export ENHANCD_COMMAND=cdd
+source ~/soft/enhancd/init.sh
