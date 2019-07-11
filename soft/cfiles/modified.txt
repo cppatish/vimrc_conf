@@ -1,0 +1,26 @@
+diff --git a/cf.c b/cf.c
+index 83d90a8..4bff75f 100644
+--- a/cf.c
+    +++ b/cf.c
+@@ -1146,8 +1146,8 @@ void getPreview(char *filepath, int maxy, int maxx)
+    getFileType(filepath);
+    if(strcasecmp("jpg",last) == 0 || strcasecmp("png",last) == 0 || strcasecmp("gif",last) == 0 || strcasecmp("jpeg",last) == 0 || strcasecmp("mp3",last) == 0)
+{
+    -        getImgPreview(filepath, maxy, maxx);
+    -        clearFlagImg = 1;
+    +        // getImgPreview(filepath, maxy, maxx);
+    +        // clearFlagImg = 1;
+
+}
+else if(strcasecmp("mp4",last) == 0 || strcasecmp("mkv",last) == 0 || strcasecmp("avi",last) == 0 || strcasecmp("webm",last) == 0)
+getDummyVidPreview(filepath, maxy, maxx);
+    @@ -2507,6 +2507,7 @@ int main(int argc, char* argv[])
+if( fileExists(clipboard_path) == 1  )
+{
+    keys_win = create_newwin(3, maxx, maxy-3, 0);
+    +                    usleep(20000);
+    wprintw(keys_win,"Key\tCommand");
+    wprintw(keys_win,"\n%c\tMove to Trash", KEY_TRASH);
+    wprintw(keys_win,"\n%c\tDelete", KEY_DELETE);
+
+}
